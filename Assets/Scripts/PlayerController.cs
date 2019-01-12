@@ -19,4 +19,5 @@ public class PlayerController : MonoBehaviour
                                                 Mathf.Lerp(0f, Input.GetAxis("Vertical") * moveSpeed, 0.8f));
 
     }
+
 }

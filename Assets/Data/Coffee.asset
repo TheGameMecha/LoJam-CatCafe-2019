@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodName_id: Coffee
   prefab: {fileID: 3201524268876181798, guid: 6475a19d67a88a341a8cb1b4e301f1e5, type: 3}
+  foodInteractable: {fileID: 6671726193619734142, guid: e2aec8bbd058a084ea2c1c64e91e6029,
+    type: 3}

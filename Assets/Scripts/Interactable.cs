@@ -6,6 +6,7 @@ public class Interactable : MonoBehaviour
 {
     [HideInInspector]
     public bool playerInside = false;
+    [HideInInspector]
     public PlayerController player;
 
     public virtual void OnTriggerEnter2D(Collider2D other)

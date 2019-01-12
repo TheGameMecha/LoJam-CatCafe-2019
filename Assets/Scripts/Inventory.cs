@@ -15,4 +15,9 @@ public class Inventory : MonoBehaviour
     {
         itemGameObject = Instantiate(currentItem.prefab, foodSpawnPoint.position, Quaternion.identity, foodSpawnPoint);
     }
+
+    public void DestroyItem()
+    {
+        Destroy(itemGameObject);
+    }
 }

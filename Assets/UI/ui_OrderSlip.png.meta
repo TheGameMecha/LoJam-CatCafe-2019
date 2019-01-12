@@ -1,7 +1,8 @@
 fileFormatVersion: 2
-guid: 14183d2782b9dd540bced3848e2c78b8
+guid: fc2e8b4b691c6b949b0045ae072866f1
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: ui_OrderSlip_0
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -46,7 +47,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 4, y: 4, z: 3, w: 4}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -82,11 +83,31 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ui_OrderSlip_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2
+        width: 45
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 3, z: 3, w: 3}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e83117f0bb25fe44ad3070babc804d1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3c2d06f091d9c3c4c9d6d8b93c9b5b6d
+    spriteID: f612e54c07706f546b54a89cb1deb115
     vertices: []
     indices: 
     edges: []

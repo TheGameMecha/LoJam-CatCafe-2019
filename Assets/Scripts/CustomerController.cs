@@ -7,6 +7,7 @@ public class CustomerController : Interactable
 {
     public CustomerData customerData;
     public List<FoodItem> currentOrder;
+    public int orderID;
 
     public GameObject speechBubble;
     public GameObject speechBubbleNib;
@@ -15,6 +16,11 @@ public class CustomerController : Interactable
 
     bool orderTaken = false;
     Image exclamationMark;
+
+    public float orderTimer = 5.0f;
+    bool startTimer = false;
+
+    bool isServed;
 
     void OnEnable()
     {
@@ -28,8 +34,9 @@ public class CustomerController : Interactable
 
     public override void Interact()
     {
-        if (orderTaken == false)
+        if (orderTaken == false && navigator.hasReachedChair)
         {
+            Debug.Log("Taking order");
             ShowOrder();
             orderTaken = true;
         }
@@ -40,9 +47,19 @@ public class CustomerController : Interactable
                 if (currentOrder.Contains(GameManager.instance.playerInventory.currentItem))
                 {
                     Debug.Log(customerData.catName + " does want " + GameManager.instance.playerInventory.currentItem);
+
+                    // Remove from ticker
+                    Order order = GameManager.instance.GetOrderFromTicker(orderID);
+                    int itemId = order.GetItemIDFromOrder(GameManager.instance.playerInventory.currentItem);
+                    Destroy(order.foodIcons[itemId]);
+                    order.currentOrder.RemoveAt(itemId);
+
+
                     currentOrder.Remove(GameManager.instance.playerInventory.currentItem);
                     GameManager.instance.playerInventory.currentItem = null;
                     GameManager.instance.playerInventory.DestroyItem();
+
+                    
                 }
                 else if (GameManager.instance.playerInventory.currentItem != null)
                 {
@@ -61,18 +78,41 @@ public class CustomerController : Interactable
     {
         base.Update();
 
-        if (navigator.hasReachedChair)
+        if (navigator.hasReachedChair && orderTaken == false)
         {
+            startTimer = true;
             ShowExclamationSpeech();
         }
+
+        if (currentOrder.Count == 0)
+        {
+            if (isServed == false)
+            {
+                GameManager.instance.customersServed += 1;
+                isServed = true;
+            }
+            
+            navigator.isLeaving = true;
+        }
+            
+
+        if (startTimer)
+        {
+            orderTimer -= Time.deltaTime;
+            if (orderTimer <= 0f)
+            {
+                currentOrder.Clear();
+            }
+        }
+            
     }
 
     void GenerateOrder()
     {
         // First, generate a random number of items to show from the order
-        int numberOfItems = Random.Range(1, GameManager.instance.maxItemPerOrder);
+        int numberOfItems = GameManager.instance.maxItemPerOrder;
 
-        for (int i = 0; i < numberOfItems - 1; i++)
+        for (int i = 0; i < numberOfItems; i++)
         {
             currentOrder.Add(customerData.foodOrder[i]);
         }
@@ -86,7 +126,7 @@ public class CustomerController : Interactable
 
     void ShowExclamationSpeech()
     {
-        exclamationMark.gameObject.SetActive(true);
+        exclamationMark.enabled = true;
         SetSpeechBubbleState(true);
     }
 
@@ -97,5 +137,11 @@ public class CustomerController : Interactable
         {
             Instantiate(item.foodIcon, speechBubble.transform.position, Quaternion.identity, speechBubble.transform);
         }
+        orderTimer = 30.0f;
+        Destroy(speechBubble, 3.0f);
+        Destroy(speechBubbleNib, 3.0f);
+        Debug.Log("Placing order");
+        GameManager.instance.CreateOrderOnTicker(currentOrder, orderID);
+        Debug.Log("Order placed");
     }
 }

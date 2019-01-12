@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f45cb64aebb27342862cacaf9fa3e22, type: 3}
-  m_Name: Coffee
+  m_Name: Donut
   m_EditorClassIdentifier: 
-  foodName_id: Coffee
-  prefab: {fileID: 3201524268876181798, guid: 6475a19d67a88a341a8cb1b4e301f1e5, type: 3}
-  foodInteractable: {fileID: 6671726193619734142, guid: e2aec8bbd058a084ea2c1c64e91e6029,
+  foodName_id: Donut
+  prefab: {fileID: 7512412187812215948, guid: 1249598a3d9bc334b894edd5af4e37c9, type: 3}
+  foodInteractable: {fileID: 7612999357704358848, guid: 0524fa61e72a3674fa9bfde35feba958,
     type: 3}
-  foodIcon: {fileID: 7250034593176425926, guid: e420d903623d6fc49bde5c68e0b36ffe,
-    type: 3}
+  foodIcon: {fileID: 903670889088821535, guid: 0aa6fbe3558b97046b467cc71376e356, type: 3}

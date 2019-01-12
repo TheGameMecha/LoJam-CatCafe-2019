@@ -31,7 +31,6 @@ public class GameManager : MonoBehaviour
 
     public int maxItemPerOrder = 1; // this number scales as we progress
 
-
     [Header("AI Pathfinding")]
     public Transform spawnPoint;
     public Transform entryPoint;
@@ -40,6 +39,11 @@ public class GameManager : MonoBehaviour
 
     [Header("UI Elements")]
     public Image exclamationMark;
+
+    public GameObject orderTicker;
+    public GameObject orderTemplate;
+
+    public List<Order> tickerOrders = new List<Order>();
 
     private void Start()
     {
@@ -51,6 +55,19 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         ManageAIAgents();
+
+        if (customersServed > 5)
+        {
+            maxItemPerOrder = 2;
+        }
+        if (customersServed > 13)
+        {
+            maxItemPerOrder = 3;
+        }
+        if (customersServed > 25)
+        {
+            maxItemPerOrder = 4;
+        }
     }
 
     void SpawnCustomer(CustomerData customer)
@@ -62,6 +79,7 @@ public class GameManager : MonoBehaviour
                 GameObject go = Instantiate(customer.prefab, spawnPoint.position, Quaternion.identity);
                 go.GetComponent<WaypointNavigator>().currentPath = chairPaths[i];
                 go.GetComponent<WaypointNavigator>().currentPath.isOccupied = true;
+                go.GetComponent<CustomerController>().orderID = customersSpawned;
                 customersSpawned += 1;
                 break;
             }
@@ -72,5 +90,34 @@ public class GameManager : MonoBehaviour
     void ManageAIAgents()
     {
         SpawnCustomer(customers[0]);
+    }
+
+    public void CreateOrderOnTicker(List<FoodItem> order, int id)
+    {
+        GameObject go = Instantiate(orderTemplate, orderTicker.transform, false);
+        int i = 0;
+
+        foreach (FoodItem item in order)
+        {
+            Debug.Log("Creating Icon and assigning it to order");
+            Image icon = Instantiate(item.foodIcon, go.transform.position, Quaternion.identity, go.GetComponentInChildren<Image>().rectTransform);
+            go.GetComponent<Order>().foodIcons.Add(icon);
+            i++;
+        }
+        Debug.Log("Assigned order on ticker");
+        go.GetComponent<Order>().currentOrder = order;
+        go.GetComponent<Order>().orderID = id;
+        go.GetComponentInChildren<Text>().text = id.ToString();
+        tickerOrders.Add(go.GetComponent<Order>());
+    }
+
+    public Order GetOrderFromTicker(int id)
+    {
+        foreach (Order order in tickerOrders)
+        {
+            if (order.orderID == id)
+                return order;
+        }
+        return null;
     }
 }

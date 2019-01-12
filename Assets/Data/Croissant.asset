@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f45cb64aebb27342862cacaf9fa3e22, type: 3}
-  m_Name: Tea
+  m_Name: Croissant
   m_EditorClassIdentifier: 
-  foodName_id: Tea
-  prefab: {fileID: 5499062962663882437, guid: e6bb6168b392ad441969a7e3a5c0c87f, type: 3}
-  foodInteractable: {fileID: 2479317870402945671, guid: 3054aa09680873e4b9bd3f694063a966,
+  foodName_id: Croissant
+  prefab: {fileID: 5148264836085090556, guid: 2cce1ba11ae79e04d8db7681f7fae1fa, type: 3}
+  foodInteractable: {fileID: 7670873286910711293, guid: ef784a4f240bdd3498a380dafc3f9b78,
     type: 3}
-  foodIcon: {fileID: 4682478590854657316, guid: 6d6ab3881c3f3cd4397df4a7bb5acc42,
+  foodIcon: {fileID: 4194017750070456397, guid: 21044e7af968cc64a96413d9414e6163,
     type: 3}

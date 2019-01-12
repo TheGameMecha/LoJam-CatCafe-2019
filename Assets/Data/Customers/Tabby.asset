@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ae835df122f5da4c9bd4898c32b8057, type: 3}
-  m_Name: Calico
+  m_Name: Tabby
   m_EditorClassIdentifier: 
-  catName: Calico
+  catName: Tabby
   foodOrder:
   - {fileID: 11400000, guid: 71afd5818ea23fb45959526c53bf445a, type: 2}
   - {fileID: 11400000, guid: 38c1798aad853854a8f5578dc71a8ac3, type: 2}

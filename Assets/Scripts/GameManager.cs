@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
 
     public List<CustomerData> customers;
 
+    public float spawnDelay = 10.0f;
+    float spawnTimer;
+
     public int customersServed = 0;
     public int customersSpawned = 0;
 
@@ -45,18 +48,22 @@ public class GameManager : MonoBehaviour
 
     public List<Order> tickerOrders = new List<Order>();
 
+    bool allSeatsFull = false;
+
     private void Start()
     {
         playerInventory = player.GetComponent<Inventory>();
+        spawnTimer = spawnDelay;
 
-        SpawnCustomer(customers[0]);
+        SpawnCustomer(customers[GenerateRandomSpawn()]);
     }
 
     void Update()
     {
-        ManageAIAgents();
 
-        if (customersServed > 5)
+        SpawnOnTimer();
+
+        if (customersServed > 1)
         {
             maxItemPerOrder = 2;
         }
@@ -81,15 +88,26 @@ public class GameManager : MonoBehaviour
                 go.GetComponent<WaypointNavigator>().currentPath.isOccupied = true;
                 go.GetComponent<CustomerController>().orderID = customersSpawned;
                 customersSpawned += 1;
+                spawnTimer = spawnDelay;
                 break;
             }
             Debug.Log("All seats are occupied");
         }
     }
 
-    void ManageAIAgents()
+    int GenerateRandomSpawn()
     {
-        SpawnCustomer(customers[0]);
+        return Random.Range(0, customers.Count);
+    }
+
+    void SpawnOnTimer()
+    {
+        spawnTimer -= Time.deltaTime;
+        if (spawnTimer <= 0)
+        {
+            SpawnCustomer(customers[GenerateRandomSpawn()]);
+            
+        }
     }
 
     public void CreateOrderOnTicker(List<FoodItem> order, int id)

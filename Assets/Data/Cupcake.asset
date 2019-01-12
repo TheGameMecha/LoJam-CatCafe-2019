@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f45cb64aebb27342862cacaf9fa3e22, type: 3}
-  m_Name: Tea
+  m_Name: Cupcake
   m_EditorClassIdentifier: 
-  foodName_id: Tea
-  prefab: {fileID: 5499062962663882437, guid: e6bb6168b392ad441969a7e3a5c0c87f, type: 3}
-  foodInteractable: {fileID: 2479317870402945671, guid: 3054aa09680873e4b9bd3f694063a966,
+  foodName_id: Cupcake
+  prefab: {fileID: 1691608156386378632, guid: a858f74f3d3775446953f43ee8d36e16, type: 3}
+  foodInteractable: {fileID: 2562829678534638167, guid: 9b4895c41d5fe864298989ac28085f93,
     type: 3}
-  foodIcon: {fileID: 4682478590854657316, guid: 6d6ab3881c3f3cd4397df4a7bb5acc42,
+  foodIcon: {fileID: 8525031675234008414, guid: 8aea74901fe07bf43b08723774f8e071,
     type: 3}

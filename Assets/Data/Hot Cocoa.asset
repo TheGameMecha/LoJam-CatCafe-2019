@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f45cb64aebb27342862cacaf9fa3e22, type: 3}
   m_Name: Hot Cocoa
   m_EditorClassIdentifier: 
-  foodName_id: 
-  prefab: {fileID: 0}
-  foodInteractable: {fileID: 0}
+  foodName_id: Hot Cocoa
+  prefab: {fileID: 7442056607606734950, guid: 5dfa1f9b0c5c82747af2e003e7486459, type: 3}
+  foodInteractable: {fileID: 4931346862348772663, guid: 52704a71499d4af40879737cc4e41e8b,
+    type: 3}
+  foodIcon: {fileID: 5693509282697093489, guid: e24e8117d8bfa9e4daf6e6f453f3d64d,
+    type: 3}

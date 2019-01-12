@@ -15,4 +15,4 @@ MonoBehaviour:
   catName: Calico
   foodOrder:
   - {fileID: 11400000, guid: 71afd5818ea23fb45959526c53bf445a, type: 2}
-  prefab: {fileID: 0}
+  prefab: {fileID: 4544847178841968108, guid: b976f7de205ead8448f701d8d1caa861, type: 3}

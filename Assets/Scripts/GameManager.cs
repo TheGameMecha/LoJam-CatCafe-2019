@@ -92,7 +92,8 @@ public class GameManager : MonoBehaviour
                 GameObject go = Instantiate(customer.prefab, spawnPoint.position, Quaternion.identity);
                 go.GetComponent<WaypointNavigator>().currentPath = chairPaths[i];
                 go.GetComponent<WaypointNavigator>().currentPath.isOccupied = true;
-                go.GetComponent<CustomerController>().orderID = go.GetComponent<WaypointNavigator>().currentPath.seatID;
+                go.GetComponent<CustomerController>().orderID = customersSpawned;
+                go.GetComponent<CustomerController>().seatID = go.GetComponent<WaypointNavigator>().currentPath.seatID;
                 customersSpawned += 1;
                 spawnTimer = spawnDelay;
                 break;
@@ -117,7 +118,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void CreateOrderOnTicker(List<FoodItem> order, int id)
+    public void CreateOrderOnTicker(List<FoodItem> order, int id, CustomerController customer)
     {
         GameObject go = Instantiate(orderTemplate, orderTicker.transform, false);
         int i = 0;
@@ -132,7 +133,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Assigned order on ticker");
         go.GetComponent<Order>().currentOrder = order;
         go.GetComponent<Order>().orderID = id;
-        go.GetComponentInChildren<Text>().text = id.ToString();
+        go.GetComponentInChildren<Text>().text = customer.seatID.ToString();
         tickerOrders.Add(go.GetComponent<Order>());
     }
 

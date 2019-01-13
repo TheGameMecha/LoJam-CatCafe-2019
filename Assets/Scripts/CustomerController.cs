@@ -8,6 +8,7 @@ public class CustomerController : Interactable
     public CustomerData customerData;
     public List<FoodItem> currentOrder;
     public int orderID;
+    public int seatID;
 
     public GameObject speechBubble;
     public GameObject speechBubbleNib;
@@ -158,7 +159,7 @@ public class CustomerController : Interactable
         Destroy(speechBubble, 3.0f);
         Destroy(speechBubbleNib, 3.0f);
         Debug.Log("Placing order");
-        GameManager.instance.CreateOrderOnTicker(currentOrder, orderID);
+        GameManager.instance.CreateOrderOnTicker(currentOrder, orderID, this);
         Debug.Log("Order placed");
     }
 }

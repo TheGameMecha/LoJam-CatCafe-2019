@@ -21,16 +21,17 @@ public class WaypointNavigator : MonoBehaviour
     Rigidbody2D rb;
 
     SpriteRenderer sprite;
+    CustomerAnimator animator;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponentInChildren<SpriteRenderer>();
+        animator = GetComponent<CustomerAnimator>();
     }
 
     void Update()
     {
-
         if (!isOnPath)
         {
             Move(GameManager.instance.entryPoint);
@@ -56,6 +57,7 @@ public class WaypointNavigator : MonoBehaviour
 
         if (hasReachedChair)
         {
+            animator.SetKneeling(true);
             if (currentPath.flipCustomer)
             {
                 sprite.flipX = true;
@@ -65,6 +67,7 @@ public class WaypointNavigator : MonoBehaviour
         if (isLeaving)
         {
             Move(currentPath.path[waypointIndex]);
+            animator.SetKneeling(false);
             if (transform.position == currentPath.path[waypointIndex].position)
             {
                 waypointIndex--;

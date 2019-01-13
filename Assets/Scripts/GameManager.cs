@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public PlayerController player;
+    [HideInInspector]
     public Inventory playerInventory;
 
     public List<CustomerData> customers;
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
     public int customersServed = 0;
     public int customersSpawned = 0;
 
-    public int maxItemPerOrder = 1; // this number scales as we progress
+    public int maxItemPerOrder = 4; // this number scales as we progress
 
     [Header("AI Pathfinding")]
     public Transform spawnPoint;
@@ -42,6 +43,7 @@ public class GameManager : MonoBehaviour
 
     [Header("UI Elements")]
     public Image exclamationMark;
+    public Text orderCounter;
 
     public GameObject orderTicker;
     public GameObject orderTemplate;
@@ -62,6 +64,7 @@ public class GameManager : MonoBehaviour
     {
 
         SpawnOnTimer();
+        orderCounter.text = customersServed + "/" + customersSpawned;
 
         if (customersServed > 1)
         {
@@ -75,6 +78,7 @@ public class GameManager : MonoBehaviour
         {
             maxItemPerOrder = 4;
         }
+
     }
 
     void SpawnCustomer(CustomerData customer)
@@ -97,7 +101,9 @@ public class GameManager : MonoBehaviour
 
     int GenerateRandomSpawn()
     {
-        return Random.Range(0, customers.Count);
+        int num = Random.Range(0, customers.Count);
+        Debug.Log(num);
+        return num;
     }
 
     void SpawnOnTimer()
@@ -106,7 +112,6 @@ public class GameManager : MonoBehaviour
         if (spawnTimer <= 0)
         {
             SpawnCustomer(customers[GenerateRandomSpawn()]);
-            
         }
     }
 

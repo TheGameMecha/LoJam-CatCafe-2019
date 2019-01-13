@@ -8,10 +8,18 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
+
+    public GameObject buttonPrompt;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        if (buttonPrompt == null)
+            Debug.LogError("Button Prompt isn't hooked up in the player controller. Yell at Scott");
+
+        ButtonPrompt(false);
     }
 
     // Update is called once per frame
@@ -32,7 +40,10 @@ public class PlayerController : MonoBehaviour
         {
             spriteRenderer.flipX = false;
         }
-
     }
 
+    public void ButtonPrompt(bool state)
+    {
+        buttonPrompt.SetActive(state);
+    }
 }

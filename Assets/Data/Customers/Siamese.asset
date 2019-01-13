@@ -15,7 +15,7 @@ MonoBehaviour:
   catName: Siamese
   foodOrder:
   - {fileID: 11400000, guid: 7f36c9df408fa224cb142fa325c02ce3, type: 2}
+  - {fileID: 11400000, guid: 009d0abad5c849640854ad10ad0669a8, type: 2}
+  - {fileID: 11400000, guid: 1a964d5e7e352d844bd418e783e6c735, type: 2}
   - {fileID: 11400000, guid: 38c1798aad853854a8f5578dc71a8ac3, type: 2}
-  - {fileID: 11400000, guid: 38c1798aad853854a8f5578dc71a8ac3, type: 2}
-  - {fileID: 11400000, guid: 38c1798aad853854a8f5578dc71a8ac3, type: 2}
-  prefab: {fileID: 4544847178841968108, guid: b976f7de205ead8448f701d8d1caa861, type: 3}
+  prefab: {fileID: 4544847178841968108, guid: 385bea6ceccc61e4c95599e8bc8b790f, type: 3}

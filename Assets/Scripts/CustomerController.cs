@@ -22,13 +22,20 @@ public class CustomerController : Interactable
 
     bool isServed;
 
+    AudioSource audioSource;
+    bool playOnce = false;
+
+
     void OnEnable()
     {
         currentOrder = new List<FoodItem>();
         navigator = GetComponent<WaypointNavigator>();
+        audioSource = GetComponentInChildren<AudioSource>();
+
         SetSpeechBubbleState(false);
         exclamationMark = Instantiate(GameManager.instance.exclamationMark, speechBubble.transform.position, Quaternion.identity, speechBubble.transform);
 
+        audioSource.PlayOneShot(GameManager.instance.entranceClip);
         GenerateOrder();
     }
 
@@ -86,6 +93,7 @@ public class CustomerController : Interactable
             if (isServed == false)
             {
                 GameManager.instance.customersServed += 1;
+                audioSource.PlayOneShot(GameManager.instance.happyClip);
                 isServed = true;
             }
             
@@ -102,6 +110,12 @@ public class CustomerController : Interactable
             if (orderTimer <= 0f)
             {
                 navigator.isLeaving = true;
+                if (playOnce == false)
+                {
+                    audioSource.PlayOneShot(GameManager.instance.angryClip);
+                    playOnce = true;
+                }
+                
                 if (GameManager.instance.GetOrderFromTicker(orderID))
                 {
                     Destroy(GameManager.instance.GetOrderFromTicker(orderID).gameObject);

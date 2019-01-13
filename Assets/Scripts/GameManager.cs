@@ -50,7 +50,11 @@ public class GameManager : MonoBehaviour
 
     public List<Order> tickerOrders = new List<Order>();
 
-    bool allSeatsFull = false;
+    [Header("Audio")]
+    public AudioClip entranceClip;
+    public AudioClip angryClip;
+    public AudioClip happyClip;
+
 
     private void Start()
     {
@@ -63,7 +67,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         SpawnOnTimer();
-        orderCounter.text = customersServed + "/" + customersSpawned;
+        orderCounter.text = customersServed + "|" + customersSpawned;
 
         if (customersServed > 1)
         {
@@ -88,7 +92,7 @@ public class GameManager : MonoBehaviour
                 GameObject go = Instantiate(customer.prefab, spawnPoint.position, Quaternion.identity);
                 go.GetComponent<WaypointNavigator>().currentPath = chairPaths[i];
                 go.GetComponent<WaypointNavigator>().currentPath.isOccupied = true;
-                go.GetComponent<CustomerController>().orderID = customersSpawned;
+                go.GetComponent<CustomerController>().orderID = go.GetComponent<WaypointNavigator>().currentPath.seatID;
                 customersSpawned += 1;
                 spawnTimer = spawnDelay;
                 break;

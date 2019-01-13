@@ -26,7 +26,7 @@ public class CustomerController : Interactable
     AudioSource audioSource;
     bool playOnce = false;
 
-    float eatTmer = 8.0f;
+    public float eatTmer = 8.0f;
 
 
     void OnEnable()
@@ -173,7 +173,7 @@ public class CustomerController : Interactable
         {
             Instantiate(item.foodIcon, speechBubble.transform.position, Quaternion.identity, speechBubble.transform);
         }
-        orderTimer = 30.0f;
+        orderTimer = 60.0f;
         Destroy(speechBubble, 3.0f);
         Destroy(speechBubbleNib, 3.0f);
         Debug.Log("Placing order");

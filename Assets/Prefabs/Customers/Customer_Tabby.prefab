@@ -212,7 +212,8 @@ MonoBehaviour:
   seatID: 0
   speechBubble: {fileID: 7831645520166583483}
   speechBubbleNib: {fileID: 1756054528}
-  orderTimer: 30
+  orderTimer: 60
+  eatTmer: 20
 --- !u!61 &4544847178841968107
 BoxCollider2D:
   m_ObjectHideFlags: 0

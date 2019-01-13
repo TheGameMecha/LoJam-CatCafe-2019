@@ -6,5 +6,6 @@ public class ChairPath : MonoBehaviour
 {
     public int seatID;
     public bool isOccupied;
+    public bool flipCustomer;
     public List<Transform> path;
 }

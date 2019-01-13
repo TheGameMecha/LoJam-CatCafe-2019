@@ -20,13 +20,14 @@ public class WaypointNavigator : MonoBehaviour
 
     Rigidbody2D rb;
 
-    // Start is called before the first frame update
+    SpriteRenderer sprite;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -50,6 +51,14 @@ public class WaypointNavigator : MonoBehaviour
                     waypointIndex = currentPath.path.Count - 1;
                     hasReachedChair = true;
                 }
+            }
+        }
+
+        if (hasReachedChair)
+        {
+            if (currentPath.flipCustomer)
+            {
+                sprite.flipX = true;
             }
         }
 
@@ -82,5 +91,15 @@ public class WaypointNavigator : MonoBehaviour
     {
         movement = Vector2.MoveTowards(transform.position, destination.position, Time.deltaTime * moveSpeed);
         rb.MovePosition(movement);
+
+        var heading = destination.position - transform.position;
+        if (heading.x < 0)
+        {
+            sprite.flipX = true;
+        }
+        else
+        {
+            sprite.flipX = false;
+        }
     }
 }

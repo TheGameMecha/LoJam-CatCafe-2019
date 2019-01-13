@@ -54,12 +54,10 @@ public class CustomerController : Interactable
                     Destroy(order.foodIcons[itemId]);
                     order.currentOrder.RemoveAt(itemId);
 
-
                     currentOrder.Remove(GameManager.instance.playerInventory.currentItem);
                     GameManager.instance.playerInventory.currentItem = null;
                     GameManager.instance.playerInventory.DestroyItem();
 
-                    
                 }
                 else if (GameManager.instance.playerInventory.currentItem != null)
                 {
@@ -71,7 +69,6 @@ public class CustomerController : Interactable
                 }
             }
         }
-
     }
 
     public override void Update()
@@ -94,17 +91,23 @@ public class CustomerController : Interactable
             
             navigator.isLeaving = true;
         }
-            
 
         if (startTimer)
         {
             orderTimer -= Time.deltaTime;
+            if (GameManager.instance.GetOrderFromTicker(orderID))
+            {
+                GameManager.instance.GetOrderFromTicker(orderID).timer.text = orderTimer.ToString("00");
+            }
             if (orderTimer <= 0f)
             {
                 navigator.isLeaving = true;
+                if (GameManager.instance.GetOrderFromTicker(orderID))
+                {
+                    Destroy(GameManager.instance.GetOrderFromTicker(orderID).gameObject);
+                }
             }
         }
-            
     }
 
     void GenerateOrder()

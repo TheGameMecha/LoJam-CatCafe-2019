@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Order : MonoBehaviour
 {
     public int orderID;
+    public Text timer;
     public List<Image> foodIcons = new List<Image>();
     public List<FoodItem> currentOrder = new List<FoodItem>();
 

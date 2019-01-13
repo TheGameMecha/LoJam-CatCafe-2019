@@ -62,7 +62,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-
         SpawnOnTimer();
         orderCounter.text = customersServed + "/" + customersSpawned;
 
@@ -78,7 +77,6 @@ public class GameManager : MonoBehaviour
         {
             maxItemPerOrder = 4;
         }
-
     }
 
     void SpawnCustomer(CustomerData customer)

@@ -59,6 +59,12 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public bool gameIsPaused = false;
+
+    float globalTimer = 0f;
+
+    int maxAgents = 3;
+    [HideInInspector]
+    public int currentAgents = 0;
     private void Start()
     {
         playerInventory = player.GetComponent<Inventory>();
@@ -70,8 +76,9 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         SpawnOnTimer();
-        orderCounter.text = customersServed + "|" + customersSpawned;
+        orderCounter.text = customersServed + "/" + customersSpawned;
 
+        
         if (customersServed > 1)
         {
             maxItemPerOrder = 2;
@@ -84,10 +91,28 @@ public class GameManager : MonoBehaviour
         {
             maxItemPerOrder = 4;
         }
+
+
+        globalTimer += Time.deltaTime;
+        if (currentAgents <= 0)
+            currentAgents = 0;
+
+        if (globalTimer >= 120)
+        {
+            maxAgents *= 2;
+            globalTimer = 0;
+        }
     }
 
     void SpawnCustomer(CustomerData customer)
     {
+        if (currentAgents >= maxAgents)
+        {
+            spawnTimer = spawnDelay;
+            return;
+        }
+           
+
         for (int i = 0; i < chairPaths.Count; i++)
         {
             if (chairPaths[i].isOccupied == false)
@@ -98,6 +123,7 @@ public class GameManager : MonoBehaviour
                 go.GetComponent<CustomerController>().orderID = customersSpawned;
                 go.GetComponent<CustomerController>().seatID = go.GetComponent<WaypointNavigator>().currentPath.seatID;
                 customersSpawned += 1;
+                currentAgents += 1;
                 spawnTimer = spawnDelay;
                 break;
             }

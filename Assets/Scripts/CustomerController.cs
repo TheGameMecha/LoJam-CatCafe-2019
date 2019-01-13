@@ -63,6 +63,7 @@ public class CustomerController : Interactable
                     int itemId = order.GetItemIDFromOrder(GameManager.instance.playerInventory.currentItem);
                     Destroy(order.foodIcons[itemId]);
                     order.currentOrder.RemoveAt(itemId);
+                    orderTimer += 10.0f;
 
                     currentOrder.Remove(GameManager.instance.playerInventory.currentItem);
                     GameManager.instance.playerInventory.currentItem = null;

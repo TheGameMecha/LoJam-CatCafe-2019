@@ -87,6 +87,7 @@ public class WaypointNavigator : MonoBehaviour
             if (transform.position == GameManager.instance.entryPoint.position)
             {
                 currentPath.isOccupied = false;
+                GameManager.instance.currentAgents -= 1;
                 Destroy(gameObject);
             }
         }

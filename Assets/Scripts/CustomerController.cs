@@ -26,6 +26,8 @@ public class CustomerController : Interactable
     AudioSource audioSource;
     bool playOnce = false;
 
+    float eatTmer = 8.0f;
+
 
     void OnEnable()
     {
@@ -97,8 +99,19 @@ public class CustomerController : Interactable
                 audioSource.PlayOneShot(GameManager.instance.happyClip);
                 isServed = true;
             }
+            if (isServed)
+            {
+                eatTmer -= Time.deltaTime;
+                if (eatTmer <= 0)
+                {
+                    navigator.isLeaving = true;
+                }
+            }
+            else
+            {
+                navigator.isLeaving = true;
+            }
             
-            navigator.isLeaving = true;
         }
 
         if (startTimer)

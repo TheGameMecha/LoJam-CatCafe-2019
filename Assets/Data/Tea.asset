@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tea
   m_EditorClassIdentifier: 
   foodName_id: Tea
-  prefab: {fileID: 5499062962663882437, guid: e6bb6168b392ad441969a7e3a5c0c87f, type: 3}
+  prefab: {fileID: 5499062962663882437, guid: ff633b95393b09b468b999095a734268, type: 3}
   foodInteractable: {fileID: 2479317870402945671, guid: 3054aa09680873e4b9bd3f694063a966,
     type: 3}
   foodIcon: {fileID: 4682478590854657316, guid: 6d6ab3881c3f3cd4397df4a7bb5acc42,

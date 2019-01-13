@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Croissant
   m_EditorClassIdentifier: 
   foodName_id: Croissant
-  prefab: {fileID: 5148264836085090556, guid: 2cce1ba11ae79e04d8db7681f7fae1fa, type: 3}
+  prefab: {fileID: 5148264836085090556, guid: 6cdcadd0ee3945f4ba40cbe03561a615, type: 3}
   foodInteractable: {fileID: 7670873286910711293, guid: ef784a4f240bdd3498a380dafc3f9b78,
     type: 3}
   foodIcon: {fileID: 4194017750070456397, guid: 21044e7af968cc64a96413d9414e6163,

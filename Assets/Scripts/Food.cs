@@ -12,7 +12,7 @@ public class Food : Interactable
         {
             GameManager.instance.playerInventory.currentItem = foodItem;
             GameManager.instance.playerInventory.SpawnItem();
-
+            player.GetComponent<CharacterAnimator>().InteractTrigger();
             Destroy(gameObject);
         }
     }

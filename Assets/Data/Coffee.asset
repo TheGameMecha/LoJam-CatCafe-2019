@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Coffee
   m_EditorClassIdentifier: 
   foodName_id: Coffee
-  prefab: {fileID: 3201524268876181798, guid: 6475a19d67a88a341a8cb1b4e301f1e5, type: 3}
+  prefab: {fileID: 3201524268876181798, guid: 223ee093497fa1f49bd44bbc35e7b472, type: 3}
   foodInteractable: {fileID: 6671726193619734142, guid: e2aec8bbd058a084ea2c1c64e91e6029,
     type: 3}
   foodIcon: {fileID: 7250034593176425926, guid: e420d903623d6fc49bde5c68e0b36ffe,

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Donut
   m_EditorClassIdentifier: 
   foodName_id: Donut
-  prefab: {fileID: 7512412187812215948, guid: 1249598a3d9bc334b894edd5af4e37c9, type: 3}
+  prefab: {fileID: 7512412187812215948, guid: bbe6a6a3300f54b4cb4da388c9eae6a3, type: 3}
   foodInteractable: {fileID: 7612999357704358848, guid: 0524fa61e72a3674fa9bfde35feba958,
     type: 3}
   foodIcon: {fileID: 903670889088821535, guid: 0aa6fbe3558b97046b467cc71376e356, type: 3}

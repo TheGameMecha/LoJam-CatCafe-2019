@@ -207,6 +207,7 @@ MonoBehaviour:
   customerData: {fileID: 11400000, guid: 699044bcc87964e4082761ffcc2b12be, type: 2}
   currentOrder: []
   orderID: 0
+  seatID: 0
   speechBubble: {fileID: 7831645520166583483}
   speechBubbleNib: {fileID: 1756054528}
   orderTimer: 30
@@ -316,7 +317,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -13,6 +13,7 @@ public class FoodDispenser : Interactable
         {
             GameManager.instance.playerInventory.currentItem = dispensedFood;
             GameManager.instance.playerInventory.SpawnItem();
+            player.GetComponent<CharacterAnimator>().InteractTrigger();
         }
     }
 }

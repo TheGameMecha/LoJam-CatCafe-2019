@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cupcake
   m_EditorClassIdentifier: 
   foodName_id: Cupcake
-  prefab: {fileID: 1691608156386378632, guid: a858f74f3d3775446953f43ee8d36e16, type: 3}
+  prefab: {fileID: 1691608156386378632, guid: 177cef37a82d30d4ea6f6884d8f77ccc, type: 3}
   foodInteractable: {fileID: 2562829678534638167, guid: 9b4895c41d5fe864298989ac28085f93,
     type: 3}
   foodIcon: {fileID: 8525031675234008414, guid: 8aea74901fe07bf43b08723774f8e071,

@@ -15,6 +15,7 @@ public class Interactable : MonoBehaviour
         {
             playerInside = true;
             player = other.GetComponent<PlayerController>();
+            player.ButtonPrompt(true);
         }
     }
 
@@ -23,6 +24,7 @@ public class Interactable : MonoBehaviour
         if (other.tag == "Player")
         {
             playerInside = false;
+            player.ButtonPrompt(false);
         }
     }
 

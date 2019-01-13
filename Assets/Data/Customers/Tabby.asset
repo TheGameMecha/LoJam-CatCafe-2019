@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   catName: Tabby
   foodOrder:
+  - {fileID: 11400000, guid: fc13dafa5dab1424a97a77010542697f, type: 2}
+  - {fileID: 11400000, guid: 1a964d5e7e352d844bd418e783e6c735, type: 2}
+  - {fileID: 11400000, guid: 38c1798aad853854a8f5578dc71a8ac3, type: 2}
   - {fileID: 11400000, guid: 71afd5818ea23fb45959526c53bf445a, type: 2}
-  - {fileID: 11400000, guid: 38c1798aad853854a8f5578dc71a8ac3, type: 2}
-  - {fileID: 11400000, guid: 38c1798aad853854a8f5578dc71a8ac3, type: 2}
-  - {fileID: 11400000, guid: 38c1798aad853854a8f5578dc71a8ac3, type: 2}
-  prefab: {fileID: 4544847178841968108, guid: b976f7de205ead8448f701d8d1caa861, type: 3}
+  prefab: {fileID: 4544847178841968108, guid: c2d1bbd1af8c96c458c345814771163a, type: 3}

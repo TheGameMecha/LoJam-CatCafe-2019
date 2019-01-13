@@ -42,7 +42,7 @@ public class CustomerController : Interactable
         }
         else
         {
-            if (GameManager.instance.playerInventory.currentItem != null)
+            if (GameManager.instance.playerInventory.currentItem != null && navigator.isLeaving == false)
             {
                 if (currentOrder.Contains(GameManager.instance.playerInventory.currentItem))
                 {
@@ -101,7 +101,7 @@ public class CustomerController : Interactable
             orderTimer -= Time.deltaTime;
             if (orderTimer <= 0f)
             {
-                currentOrder.Clear();
+                navigator.isLeaving = true;
             }
         }
             

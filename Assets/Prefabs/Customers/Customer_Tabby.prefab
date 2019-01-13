@@ -143,7 +143,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: bbf1f3c4c755c3f408d6d0523888d4d7, type: 3}
-  m_Color: {r: 1, g: 0.4009434, b: 0.4009434, a: 1}
+  m_Color: {r: 1, g: 0.48200065, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 4544847178841968021}
   - component: {fileID: 4544847178841968023}
   m_Layer: 9
-  m_Name: Customer_Calico
+  m_Name: Customer_Tabby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInside: 0
   player: {fileID: 0}
-  customerData: {fileID: 11400000, guid: 699044bcc87964e4082761ffcc2b12be, type: 2}
+  customerData: {fileID: 11400000, guid: ecb2d589cf46d28458bc47f5682bc4e4, type: 2}
   currentOrder: []
   orderID: 0
   speechBubble: {fileID: 7831645520166583483}

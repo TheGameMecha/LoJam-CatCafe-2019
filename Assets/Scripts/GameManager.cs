@@ -50,12 +50,15 @@ public class GameManager : MonoBehaviour
 
     public List<Order> tickerOrders = new List<Order>();
 
+    public GameObject pauseMenu;
+
     [Header("Audio")]
     public AudioClip entranceClip;
     public AudioClip angryClip;
     public AudioClip happyClip;
 
-
+    [HideInInspector]
+    public bool gameIsPaused = false;
     private void Start()
     {
         playerInventory = player.GetComponent<Inventory>();
@@ -145,5 +148,19 @@ public class GameManager : MonoBehaviour
                 return order;
         }
         return null;
+    }
+
+    public void PauseGame(bool state)
+    {
+        pauseMenu.SetActive(state);
+        gameIsPaused = state;
+        if (state)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
     }
 }

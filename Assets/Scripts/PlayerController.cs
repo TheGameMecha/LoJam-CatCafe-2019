@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     CharacterAnimator animator;
     Inventory inventory;
 
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -27,9 +29,17 @@ public class PlayerController : MonoBehaviour
         ButtonPrompt(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Pause"))
+        {
+            GameManager.instance.gameIsPaused = !GameManager.instance.gameIsPaused;
+            GameManager.instance.PauseGame(GameManager.instance.gameIsPaused);
+        }
+
+        if (GameManager.instance.gameIsPaused)
+            return;
+
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -69,4 +79,6 @@ public class PlayerController : MonoBehaviour
     {
         buttonPrompt.SetActive(state);
     }
+
+
 }

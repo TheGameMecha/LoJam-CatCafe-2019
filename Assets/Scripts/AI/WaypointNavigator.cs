@@ -43,7 +43,7 @@ public class WaypointNavigator : MonoBehaviour
         if (isOnPath && !hasReachedChair)
         {
             Move(currentPath.path[waypointIndex]);
-
+            sprite.sortingOrder = 15;
             if (transform.position == currentPath.path[waypointIndex].position)
             {
                 waypointIndex++;
@@ -58,6 +58,7 @@ public class WaypointNavigator : MonoBehaviour
         if (hasReachedChair)
         {
             animator.SetKneeling(true);
+            sprite.sortingOrder = 14;
             if (currentPath.flipCustomer)
             {
                 sprite.flipX = true;
@@ -68,6 +69,7 @@ public class WaypointNavigator : MonoBehaviour
         {
             Move(currentPath.path[waypointIndex]);
             animator.SetKneeling(false);
+            sprite.sortingOrder = 15;
             if (transform.position == currentPath.path[waypointIndex].position)
             {
                 waypointIndex--;

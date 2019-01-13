@@ -15,7 +15,6 @@ public class Interactable : MonoBehaviour
         {
             playerInside = true;
             player = other.GetComponent<PlayerController>();
-            player.ButtonPrompt(true);
         }
     }
 
@@ -39,5 +38,14 @@ public class Interactable : MonoBehaviour
     public virtual void Interact()
     {
         Debug.Log("Interacted");
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            player = other.GetComponent<PlayerController>();
+            player.ButtonPrompt(true);
+        }
     }
 }

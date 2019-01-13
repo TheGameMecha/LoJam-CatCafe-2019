@@ -83,7 +83,11 @@ public class CustomerController : Interactable
 
     public override void Update()
     {
-        base.Update();
+        if (navigator.isLeaving == false)
+        {
+            base.Update();
+        }
+        
 
         if (navigator.hasReachedChair && orderTaken == false)
         {

@@ -4102,6 +4102,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrderTicker
       objectReference: {fileID: 0}
+    - target: {fileID: 670535260, guid: 4b7f325de6d8f2b48ae103c16f07176b, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: d18d0289fac43984987a904bdcd3310e,
+        type: 3}
+    - target: {fileID: 670535260, guid: 4b7f325de6d8f2b48ae103c16f07176b, type: 3}
+      propertyPath: m_Text
+      value: 0|0
+      objectReference: {fileID: 0}
     - target: {fileID: 1566774022707067595, guid: 4b7f325de6d8f2b48ae103c16f07176b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4216,15 +4225,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 670535260, guid: 4b7f325de6d8f2b48ae103c16f07176b, type: 3}
-      propertyPath: m_FontData.m_Font
-      value: 
-      objectReference: {fileID: 12800000, guid: d18d0289fac43984987a904bdcd3310e,
-        type: 3}
-    - target: {fileID: 670535260, guid: 4b7f325de6d8f2b48ae103c16f07176b, type: 3}
-      propertyPath: m_Text
-      value: 0|0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b7f325de6d8f2b48ae103c16f07176b, type: 3}
@@ -4901,6 +4901,7 @@ GameObject:
   - component: {fileID: 1403828132}
   - component: {fileID: 1403828131}
   - component: {fileID: 1403828134}
+  - component: {fileID: 1403828135}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4985,6 +4986,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: b580c720f20da9b42b546f9c31059ce3, type: 2}
+--- !u!114 &1403828135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403828130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4101779d28509484896686f9033c3ad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shader: {fileID: 4800000, guid: 3c9a2a84853e95a48becfd4701c24659, type: 3}
+  lineWidth: 1.2
+  hardness: 0.886
+  displacementSpeed: 0.042
 --- !u!4 &1433056211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8859715763942013800, guid: 00b1c0d374345994589aea7cbce27ef4,
@@ -6992,6 +7009,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 3115648626820716254, guid: eb7ff9719de8d1240a74794747ececba,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3115648626820716248, guid: eb7ff9719de8d1240a74794747ececba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7046,11 +7068,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3115648626820716254, guid: eb7ff9719de8d1240a74794747ececba,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3115648626820716253, guid: eb7ff9719de8d1240a74794747ececba,
         type: 3}

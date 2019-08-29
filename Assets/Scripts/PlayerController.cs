@@ -40,6 +40,9 @@ public class PlayerController : MonoBehaviour
         if (GameManager.instance.gameIsPaused)
             return;
 
+        if (GameManager.instance.gameIsOver)
+            return;
+
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 

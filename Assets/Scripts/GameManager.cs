@@ -52,6 +52,14 @@ public class GameManager : MonoBehaviour
 
     public GameObject pauseMenu;
 
+    public Text gameTimerText;
+    public GameObject gameOverPanel;
+    public Text finalScoreText;
+
+    [Header("Game Scoring")]
+    public float maxGameTime;
+    float gameTime;
+
     [Header("Audio")]
     public AudioClip entranceClip;
     public AudioClip angryClip;
@@ -59,6 +67,8 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public bool gameIsPaused = false;
+    [HideInInspector]
+    public bool gameIsOver = false;
 
     float globalTimer = 0f;
 
@@ -71,14 +81,21 @@ public class GameManager : MonoBehaviour
         spawnTimer = spawnDelay;
 
         SpawnCustomer(customers[GenerateRandomSpawn()]);
+
+        gameTime = maxGameTime;
+        gameOverPanel.SetActive(false);
     }
 
     void Update()
     {
+        if (gameIsOver)
+            return;
+
         SpawnOnTimer();
         orderCounter.text = customersServed + "/" + customersSpawned;
+        UpdateGameTimer();
 
-        
+
         if (customersServed > 1)
         {
             maxItemPerOrder = 2;
@@ -111,7 +128,7 @@ public class GameManager : MonoBehaviour
             spawnTimer = spawnDelay;
             return;
         }
-           
+
 
         for (int i = 0; i < chairPaths.Count; i++)
         {
@@ -187,6 +204,20 @@ public class GameManager : MonoBehaviour
         else
         {
             Time.timeScale = 1f;
+        }
+    }
+
+    void UpdateGameTimer()
+    {
+        gameTime -= Time.deltaTime;
+        System.TimeSpan timeSpan = System.TimeSpan.FromSeconds(gameTime);
+        gameTimerText.text = string.Format("{0:D2}:{1:D2}", timeSpan.Minutes, timeSpan.Seconds);
+
+        if (gameTime <= 0)
+        {
+            gameIsOver = true;
+            gameOverPanel.SetActive(true);
+            finalScoreText.text = customersServed.ToString();
         }
     }
 }

@@ -11,12 +11,12 @@ public class DontDestroyOnLoadSingleton : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
     }
 }
